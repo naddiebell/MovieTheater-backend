@@ -1,5 +1,4 @@
-
-[![Actions Status](https://github.com/slosa-smartare/backend/workflows/Savely%20backend/badge.svg)](https://github.com/slosa-smartare/backend/actions)
+[![Actions Status](https://github.com/naddiebell/MovieTheater-backend/workflows/Movie_Theater_backend/badge.svg)](https://github.com/naddiebell/MovieTheater-backend/actions)
 
 # MovieTheater-backend
 
