@@ -3,7 +3,7 @@
 # MovieTheater-backend
 
 Starts with `npm run dev`
-Runs on Port 4059
+Runs on Port 5709
 
 # UsersRouter
 
@@ -105,7 +105,7 @@ Database MongoDB: add connection string to .env file:
 - Replace username,password and dbname in the connection string.
 
 2. Create `.env` file in the project directory. Add MONGO_URI='YOUR CONNECTION STRING HERE' to `.env` file like:
-   MONGO_URI='mongodb+srv://USERNAME:YOURPASSWORD@cluster.i3dl2.mongodb.net/YOURDBNAME?retryWrites=true&w=majority' or local connection: MONGO_URI="mongodb://localhost/dev-savely"
+   MONGO_URI='mongodb+srv://USERNAME:YOURPASSWORD@cluster.i3dl2.mongodb.net/YOURDBNAME?retryWrites=true&w=majority' or local connection: MONGO_URI="mongodb://localhost/dev-cinema"
 3. Create `.env.test` file in the project directory. Add MONGO_URI='YOUR CONNECTION STRING HERE' to `.env.test` The database must have a different name than in step 2. See below examples.
-   Atlas example: MONGO_URI='mongodb+srv://USERNAME:YOURPASSWORD@cluster.i3dl2.mongodb.net/test-Savely?retryWrites=true&w=majority'  
-   Or local connection example: MONGO_URI="mongodb://localhost/test-savely"
+   Atlas example: MONGO_URI='mongodb+srv://USERNAME:YOURPASSWORD@cluster.i3dl2.mongodb.net/test-cinema?retryWrites=true&w=majority'  
+   Or local connection example: MONGO_URI="mongodb://localhost/test-cinema"

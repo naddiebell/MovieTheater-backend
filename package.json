@@ -11,8 +11,8 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "test": "cross-env NODE_ENV=test mocha --recursive src/test/ --timeout 10000",
-    "dev": "cross-env LOG_LEVEL=debug NODE_ENV=development nodemon",
+    "test": "NODE_ENV=test mocha --recursive src/test/ --timeout 10000",
+    "dev": "LOG_LEVEL=debug NODE_ENV=development nodemon",
     "start": "NODE_ENV=production node src/index.js",
     "lint": "eslint \"src/**/*.js\""
   },
