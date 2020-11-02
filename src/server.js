@@ -10,10 +10,10 @@ app.get('/', (req, res) => {
   });
 });
 
-const users = require("./controllers/users");
-const tickets = require("./controllers/tickets");
+const users = require('./controllers/users');
+const tickets = require('./controllers/tickets');
 
 app.use('/api/v1/users', users);
-app.use('api/v1/users/:userId/tickets', tickets);
+app.use('/api/v1/tickets', tickets);
 
 module.exports = app;
