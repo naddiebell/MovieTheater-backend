@@ -55,7 +55,6 @@ router.post('/', async (req, res) => {
 
 // patch a ticket
 
-
 // delete a ticket
 
 module.exports = router;
