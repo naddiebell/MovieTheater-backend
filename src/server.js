@@ -21,6 +21,7 @@ const tickets = require('./controllers/tickets');
 app.use('/api/v1/users', users);
 app.use('/api/v1/tickets', tickets);
 app.post('/create-checkout-session', async (req, res) => {
+  console.log(req);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
@@ -28,7 +29,7 @@ app.post('/create-checkout-session', async (req, res) => {
         price_data: {
           currency: 'sek',
           product_data: {
-            name: 'filmTitle',
+            name: "Mulan",
           },
           unit_amount: 2000,
         },
