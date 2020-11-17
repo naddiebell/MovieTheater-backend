@@ -21,7 +21,6 @@ const tickets = require('./controllers/tickets');
 app.use('/api/v1/users', users);
 app.use('/api/v1/tickets', tickets);
 app.post('/create-checkout-session', async (req, res) => {
-  console.log(req);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
@@ -37,7 +36,7 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url:'http://google.com',
+    success_url: 'http://google.com',
     cancel_url: 'http://bing.com',
   });
   res.json({ id: session.id });
