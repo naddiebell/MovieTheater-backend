@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 const express = require('express');
 const { Ticket } = require('../models/ticket');
 
@@ -34,9 +35,9 @@ const router = express.Router();
 
 // post a ticket
 router.post('/', async (req, res) => {
-  const { filmName, dateOfFilm, seatAmount } = req.body;
+  const { filmName, dateOfFilm, seatAmount, userName, userEmail } = req.body;
   try {
-    if (filmName && dateOfFilm && seatAmount) {
+    if (filmName && dateOfFilm && seatAmount && userName && userEmail) {
       const ticket = new Ticket({
         filmName,
         dateOfFilm,
@@ -46,7 +47,8 @@ router.post('/', async (req, res) => {
       return res.json(ticket);
     }
     return res.status(400).json({
-      message: 'Please include Film Name, Film Date, and Number of Tickets',
+      message:
+        'Please include Film Name, Film Date, and Number of Tickets, user Name and userEmail',
     });
   } catch (err) {
     return res.status(500).send(err);
