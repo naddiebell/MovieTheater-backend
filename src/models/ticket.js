@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const TicketSchema = new mongoose.Schema({
   filmName: { type: String, required: true },
-  dateOfFilm: { type: Date, required: true },
+  date: { type: String, required: true },
   seatAmount: { type: Number, required: true },
-  userName: { String },
-  userEmail: { String }
+  userName: { type: String, required: true },
+  userEmail: { type: String, required: true },
 });
 
 module.exports = {

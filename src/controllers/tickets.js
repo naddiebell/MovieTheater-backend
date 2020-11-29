@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable object-curly-newline */
 const express = require('express');
 const { Ticket } = require('../models/ticket');
@@ -5,43 +6,46 @@ const { Ticket } = require('../models/ticket');
 const router = express.Router();
 
 // get all tickets
-// router.get('/', async (req, res) => {
-//   try {
-//     const allTickets = await Ticket.find();
-//     if (!allTickets) {
-//       res.status(204).json({ message: 'No tickets found' });
-//     } else {
-//       return res.json(allTickets);
-//     }
-//   } catch (err) {
-//     return res.status(500).send();
-//   }
-// });
+router.get('/', async (req, res) => {
+  try {
+    const allTickets = await Ticket.find();
+    if (!allTickets) {
+      res.status(204).json({ message: 'No tickets found' });
+    } else {
+      return res.json(allTickets);
+    }
+  } catch (err) {
+    return res.status(500).send();
+  }
+});
 
 // // get one ticket
-// router.get('/:ticketId', async (req, res) => {
-//   try {
-//     const aTicket = await Ticket.findOne({ _id: req.params.userId });
+router.get('/:ticketId', async (req, res) => {
+   
+  try {
+    const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
 
-//     if (!aTicket) {
-//       res.status(404).json({ message: 'user ID does not exist' });
-//     } else {
-//       return res.json(aTicket);
-//     }
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }
-// });
+    if (!aTicket) {
+      res.status(404).json({ message: 'user ID does not exist' });
+    } else {
+      return res.json(aTicket);
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 // post a ticket
 router.post('/', async (req, res) => {
-  const { filmName, dateOfFilm, seatAmount, userName, userEmail } = req.body;
+  const { filmName, date, seatAmount, userName, userEmail } = req.body;
   try {
-    if (filmName && dateOfFilm && seatAmount && userName && userEmail) {
+    if (filmName && date && seatAmount && userName && userEmail) {
       const ticket = new Ticket({
         filmName,
-        dateOfFilm,
+        date,
         seatAmount,
+        userName,
+        userEmail,
       });
       await ticket.save();
       return res.json(ticket);
@@ -56,7 +60,6 @@ router.post('/', async (req, res) => {
 });
 
 // patch a ticket
-
 
 // delete a ticket
 
