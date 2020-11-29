@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
 
 // // get one ticket
 router.get('/:ticketId', async (req, res) => {
-   
   try {
     const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
 
@@ -52,7 +51,7 @@ router.post('/', async (req, res) => {
     }
     return res.status(400).json({
       message:
-        'Please include Film Name, Film Date, and Number of Tickets, user Name and userEmail',
+        'Please include Film Name, Film Date, Number of Tickets, user Name and userEmail',
     });
   } catch (err) {
     return res.status(500).send(err);
