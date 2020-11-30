@@ -5,10 +5,10 @@
 Starts with `npm run dev`
 Runs on Port 5709
 
-# UsersRouter
+# TickeetsRouter
 
-1. Create (new user)
-   Route: POST '/api/v1/users'
+1. Create new ticket
+   Route: POST '/api/v1/tickets'
    Request Body: {firstName: string, lastName: string, email: string}
 
 2. Read (all users)
@@ -24,61 +24,8 @@ Runs on Port 5709
 5. Delete(user by Id)
    Route: DELETE '/api/v1/users/userId'
 
-# ProductsRouter
 
-1. Create (new product for a specific user)
-   Route: POST '/api/v1/users/userId/products'
-   Request Body: {name: string, price: number, link: string, imageUrl: string }
-
-2. Read (all products of an specific user)
-   Route: GET '/api/v1/users/userId/products'
-
-3. Read (product by Id)
-   Route: GET '/api/v1/users/userId/products/productId'
-
-4. Update(product by Id)
-   Route: PUT '/api/v1/users/userId/products/productId'
-   Request Body: {name: string, price: number, link: string, imageUrl: string}
-
-5. Delete(product by Id)
-   Route: DELETE '/api/v1/users/userId/products/productId'
-
-# AnswersRouter
-
-1. Create (new answer for a specific product)
-   Route: POST '/api/v1/users/userId/products/productId/answwers'
-   Request Body: {receiverName: string, receiverMessage: string, results: ["question": number, "selectedOption": string, "freeText": number] }
-2. Read (all answers for a specific product )
-   Route: GET '//api/v1/users/userId/products/productId/answers'
-   Response Body: {[ Array of answers ]}
-
-# QuestionsRouter
-
-1. Read (all questions)
-   Route: GET '/api/v1/questions'
-   Response Body: {[ Array of Objects with all questions ] }
-
-## Seed Database with questions
-
-In the seed-db folder you will find the import script and a folder named `data`, with all the `questions` that will be saved in db. Every time you run this file, this specific collection of questions will be drop and created again.
-
-To insert/update all questions in database:
-
-1. npm install
-2. npm run seedDb
-
-# Cloudinary Setup
-
-Cloudinary offers a solution to web application's entire image management pipeline.
-######Setup
-
-1. npm install cloudinary
-
-2. Create an account in Cloudinary
-3. Follow Cloudinary's Node.js SDK link (https://cloudinary.com/documentation/node_integration#node_js_getting_started_guide)
-4. Provide CLOUDINARY_NAME, CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET in `.env` file.
-
-# Slösa smartare backend
+# Movie Theater backend
 
 ####Setup  
 Eslint must be installed globally: `npm install -g eslint`

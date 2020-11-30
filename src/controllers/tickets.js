@@ -21,6 +21,9 @@ router.get('/', async (req, res) => {
 
 // // get one ticket
 router.get('/:ticketId', async (req, res) => {
+  console.log(res.body);
+  const { id } = req.body;
+  console.log("hellloo", id);
   try {
     const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
 
@@ -36,13 +39,14 @@ router.get('/:ticketId', async (req, res) => {
 
 // post a ticket
 router.post('/', async (req, res) => {
-  const { filmName, date, seatAmount, userName, userEmail } = req.body;
+  const { filmName, date, seatAmount, userName, userEmail, price } = req.body;
   try {
-    if (filmName && date && seatAmount && userName && userEmail) {
+    if (filmName && date && seatAmount && userName && userEmail && price) {
       const ticket = new Ticket({
         filmName,
         date,
         seatAmount,
+        price,
         userName,
         userEmail,
       });
@@ -51,7 +55,7 @@ router.post('/', async (req, res) => {
     }
     return res.status(400).json({
       message:
-        'Please include Film Name, Film Date, Number of Tickets, user Name and userEmail',
+        'Please include Film Name, Film Date, Number of Tickets, user Name, userEmail and price',
     });
   } catch (err) {
     return res.status(500).send(err);

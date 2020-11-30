@@ -4,8 +4,10 @@ const TicketSchema = new mongoose.Schema({
   filmName: { type: String, required: true },
   date: { type: String, required: true },
   seatAmount: { type: Number, required: true },
+  price: { type: Number, required: true },
   userName: { type: String, required: true },
   userEmail: { type: String, required: true },
+  verified: { type: Boolean, default: false },
 });
 
 module.exports = {
