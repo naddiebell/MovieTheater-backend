@@ -7,7 +7,7 @@ const TicketSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   userName: { type: String, required: true },
   userEmail: { type: String, required: true },
-  verified: { type: Boolean, default: false },
+  success: { type: Boolean, default: false },
 });
 
 module.exports = {

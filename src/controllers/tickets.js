@@ -21,9 +21,25 @@ router.get('/', async (req, res) => {
 
 // // get one ticket
 router.get('/:ticketId', async (req, res) => {
-  console.log(res.body);
-  const { id } = req.body;
-  console.log("hellloo", id);
+  console.log('aaaaaaaaaa', req);
+  console.log('paarrammmss', req.params);
+  // const { id } = req.params.ticketId;
+  // if (id) {
+  //   console.log('theres an id');
+  // }
+  if (req.query.payment == 'success') {
+    console.log("bbbbbbbbb")
+    await Ticket.updateOne(
+      { _id: req.params.ticketId, 'tickets._id': req.params.ticketId },
+      console.log("ccccccc", req.ticketId),
+      {
+        $set: {
+          'tickets.$.success': true,
+        },
+      }
+    );
+  }
+
   try {
     const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
 
