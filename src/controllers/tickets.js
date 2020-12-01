@@ -21,27 +21,25 @@ router.get('/', async (req, res) => {
 
 // // get one ticket
 router.get('/:ticketId', async (req, res) => {
-  console.log('aaaaaaaaaa', req);
-  console.log('paarrammmss', req.params);
-  // const { id } = req.params.ticketId;
-  // if (id) {
-  //   console.log('theres an id');
-  // }
-  if (req.query.payment == 'success') {
-    console.log("bbbbbbbbb")
-    await Ticket.updateOne(
-      { _id: req.params.ticketId, 'tickets._id': req.params.ticketId },
-      console.log("ccccccc", req.ticketId),
-      {
-        $set: {
-          'tickets.$.success': true,
-        },
-      }
-    );
-  }
-
   try {
     const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
+
+    if (!aTicket) {
+      res.status(404).json({ message: 'user ID does not exist' });
+    } else {
+      return res.json(aTicket);
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// verify payment
+router.put('/:ticketId/validate', async (req, res) => {
+  try {
+    const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
+    aTicket.verified = true;
+    await aTicket.save();
 
     if (!aTicket) {
       res.status(404).json({ message: 'user ID does not exist' });
@@ -77,9 +75,5 @@ router.post('/', async (req, res) => {
     return res.status(500).send(err);
   }
 });
-
-// patch a ticket
-
-// delete a ticket
 
 module.exports = router;

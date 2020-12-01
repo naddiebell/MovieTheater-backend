@@ -5,7 +5,7 @@
 Starts with `npm run dev`
 Runs on Port 5709
 
-# TickeetsRouter
+# TicketsRouter
 
 1. Create new ticket
    Route: POST '/api/v1/tickets'
