@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//get one user by ID
+// get one user by ID
 
 router.get('/:userId', async (req, res) => {
   try {
@@ -32,20 +32,5 @@ router.get('/:userId', async (req, res) => {
     res.status(500).send(err);
   }
 });
-
-//post user without tickets
-
-router.post('/', async (req, res) => {
-  try {
-
-    
-  } catch (error) {
-    
-  }
-})
-
-//put / update user
-
-//delete user
 
 module.exports = router;
