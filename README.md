@@ -11,18 +11,18 @@ Runs on Port 5709
    Route: POST '/api/v1/tickets'
    Request Body: {firstName: string, lastName: string, email: string}
 
-2. Read (all users)
-   Route: GET '/api/v1/users'
+2. Read (all tickets)
+   Route: GET '/api/v1/tickets'
 
-3. Read (user by Id)
-   Route: GET '/api/v1/users/userId'
+3. Read (ticket by Id)
+   Route: GET '/api/v1/tickets/:ticketId'
 
-4. Update(user by Id)
-   Route: PATCH '/api/v1/users/userId'
+4. Validate a ticket has been paid
+   Route: PUT '/api/v1/tickets/:ticketId/validate'
    Request Body: {firstName: string || lastName: string || email: string}
 
 5. Delete(user by Id)
-   Route: DELETE '/api/v1/users/userId'
+   Route: DELETE '/api/v1/tickets/:ticketId'
 
 
 # Movie Theater backend
