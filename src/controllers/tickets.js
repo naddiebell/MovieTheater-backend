@@ -25,7 +25,7 @@ router.get('/:ticketId', async (req, res) => {
     const aTicket = await Ticket.findOne({ _id: req.params.ticketId });
 
     if (!aTicket) {
-      res.status(404).json({ message: 'user ID does not exist' });
+      res.status(404).json({ message: 'ticket ID does not exist' });
     } else {
       return res.json(aTicket);
     }
@@ -42,7 +42,7 @@ router.put('/:ticketId/validate', async (req, res) => {
     await aTicket.save();
 
     if (!aTicket) {
-      res.status(404).json({ message: 'user ID does not exist' });
+      res.status(404).json({ message: 'ticket ID does not exist' });
     } else {
       return res.json(aTicket);
     }
