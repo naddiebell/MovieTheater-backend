@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable consistent-return */
 /* eslint-disable object-curly-newline */
 const express = require('express');
@@ -53,9 +54,25 @@ router.put('/:ticketId/validate', async (req, res) => {
 
 // post a ticket
 router.post('/', async (req, res) => {
-  const { filmName, date, seatAmount, userName, userEmail, price } = req.body;
+  const {
+    filmName,
+    date,
+    seatAmount,
+    userName,
+    userEmail,
+    price,
+    seats,
+  } = req.body;
   try {
-    if (filmName && date && seatAmount && userName && userEmail && price) {
+    if (
+      filmName &&
+      date &&
+      seatAmount &&
+      userName &&
+      userEmail &&
+      price &&
+      seats
+    ) {
       const ticket = new Ticket({
         filmName,
         date,
@@ -63,13 +80,14 @@ router.post('/', async (req, res) => {
         price,
         userName,
         userEmail,
+        seats,
       });
       await ticket.save();
       return res.json(ticket);
     }
     return res.status(400).json({
       message:
-        'Please include Film Name, Film Date, Number of Tickets, user Name, userEmail and price',
+        'Please include Film Name, Film Date, Number of Tickets, user Name, userEmail and price, and seats',
     });
   } catch (err) {
     return res.status(500).send(err);

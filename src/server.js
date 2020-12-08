@@ -18,8 +18,10 @@ app.get('/', (req, res) => {
 });
 
 const tickets = require('./controllers/tickets');
+const screenings = require('./controllers/screenings');
 
 app.use('/api/v1/tickets', tickets);
+app.use('/api/v1/screenings', screenings);
 
 app.post('/create-checkout-session', async (req, res) => {
   const { filmName, price, _id, userEmail } = req.body.ticket;
